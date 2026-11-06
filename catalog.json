@@ -1,19 +1,4 @@
 {
   "about": "Modules this launcher knows about. One that is not installed shows as a greyed tab when its GitHub repo has a published release at or above minVersion. Set \"published\": true to show it anyway (for example when GitHub cannot be reached) or false to hide it. Example entry: { \"id\": \"alpha\", \"name\": \"Alpha\", \"title\": \"Alpha module\", \"repo\": \"SomtimesOttomation/AlphaModule\", \"minVersion\": \"0.1.0\", \"icon\": \"ui/img/catalog/alpha.svg\" }",
-  "modules": [
-    {
-      "id": "movies",
-      "name": "Movies",
-      "title": "MediaMovies",
-      "repo": "SomtimesOttomation/MediaMovies",
-      "minVersion": "0.1.0"
-    },
-    {
-      "id": "shows",
-      "name": "TV Shows",
-      "title": "MediaShows",
-      "repo": "SomtimesOttomation/MediaShows",
-      "minVersion": "0.1.0"
-    }
-  ]
+  "modules": []
 }
