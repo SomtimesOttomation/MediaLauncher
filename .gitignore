@@ -1,0 +1,17 @@
+# WebView2 wrapper DLLs are downloaded on first run
+lib/*.dll
+*.zip
+*.log
+*.tmp
+# editor and OS noise
+.vscode/
+.DS_Store
+Thumbs.db
+# modules are installed by the person, not part of this repo
+modules/*
+!modules/README.md
+# drop-in update zips are the person's own files
+updates/*
+!updates/README.md
+# the Sample's WebView2 DLLs when run on its own
+samples/*/lib/

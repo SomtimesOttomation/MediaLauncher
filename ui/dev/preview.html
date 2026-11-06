@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MediaLauncher preview</title>
+  <style>
+    html, body { margin: 0; height: 100%; }
+    body { display: flex; background: #888; }
+    iframe { border: 0; height: 100%; }
+    #rail { width: 76px; flex: none; }
+    #main { flex: 1; }
+  </style>
+</head>
+<body>
+  <!-- Dev only: the rail beside the notice page, both with the mock host. preview.html?theme=dark#error -->
+  <iframe id="rail" title="rail"></iframe>
+  <iframe id="main" title="notice"></iframe>
+  <script>
+    const q = location.search;
+    document.getElementById('rail').src = '../rail.html' + q;
+    document.getElementById('main').src = '../panel.html' + q + (location.hash || '#locked');
+  </script>
+</body>
+</html>

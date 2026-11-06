@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/SomtimesOttomation/MediaLauncher/schema/module.schema.json",
+  "title": "MediaLauncher module manifest (contract 1)",
+  "description": "The module.json file in the root of a module folder. See MODULE-CONTRACT.md. Unknown fields are allowed and ignored, so optional fields added later in contract 1 do not break older launchers.",
+  "type": "object",
+  "required": [
+    "contract",
+    "id",
+    "name",
+    "title",
+    "versionFile",
+    "icon",
+    "backend",
+    "ui",
+    "entry",
+    "standalone"
+  ],
+  "definitions": {
+    "relPath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Relative path inside the module folder: no '..' segment, no leading slash or backslash, no drive letter, no UNC path.",
+      "pattern": "^(?![\\\\/])(?![A-Za-z]:)(?!.*(^|[\\\\/])\\.\\.([\\\\/]|$))[^:*?\"<>|]+$"
+    }
+  },
+  "properties": {
+    "contract": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]{1,19}$",
+      "not": {
+        "enum": [
+          "launcher"
+        ]
+      }
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 12
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60
+    },
+    "versionFile": {
+      "$ref": "#/definitions/relPath"
+    },
+    "icon": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/relPath"
+        },
+        {
+          "pattern": "\\.(svg|png)$"
+        }
+      ]
+    },
+    "backend": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/relPath"
+        },
+        {
+          "pattern": "\\.psm1$"
+        }
+      ]
+    },
+    "ui": {
+      "$ref": "#/definitions/relPath"
+    },
+    "entry": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/relPath"
+        },
+        {
+          "pattern": "\\.html?$"
+        }
+      ]
+    },
+    "standalone": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/relPath"
+        },
+        {
+          "pattern": "\\.bat$"
+        }
+      ]
+    },
+    "dataSources": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "terms"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "terms": {
+            "type": "string",
+            "pattern": "^https://"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "contract": 1,
+  "id": "sample",
+  "name": "Sample",
+  "title": "Sample Module",
+  "versionFile": "VERSION",
+  "icon": "ui/img/tab-icon.svg",
+  "backend": "modules/SampleModule.Host.psm1",
+  "ui": "ui",
+  "entry": "index.html",
+  "standalone": "Start-SampleModule.bat",
+  "dataSources": [
+    {
+      "name": "GitHub releases (update check, only when you ask)",
+      "terms": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service"
+    }
+  ]
+}
